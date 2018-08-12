@@ -1,0 +1,21 @@
+{
+  "name": "cultivo-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "mongoose": "^5.2.7",
+    "path": "^0.12.7",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.0",
+    "nodemon": "^1.18.3"
+  }
+}

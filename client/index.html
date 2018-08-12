@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cultivo</title>
+
+    <!-- Bootstrap CDN -->
+    <link async rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <!-- Bootstrap Toggle -->    
+    <!-- <link rel="stylesheet" href="css/bootstrap-toggle.min.css"> -->
+
+    <!-- Bootstrap Slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.0/css/bootstrap-slider.min.css">
+
+    <!-- Font Awesome CDN -->
+    <link async rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <header></header>
+    <div class="container">
+        <div class="textHeader">
+            <h1 class="text-center">Crops Monitor</h1>
+            <h5 class="text-center">Universidad Central</h5>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <div class="border border-secondary btn-control">                    
+                    <div class="form-group">
+                        <span class="switch">
+                            <input data-toggle="toggle" type="checkbox" class="switch" id="motor-ctrl">
+                            <label for="motor-ctrl">Motor</label>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span class="switch">
+                            <input data-toggle="toggle" type="checkbox" class="switch" id="turbine-ctrl">
+                            <label for="turbine-ctrl">Turbina</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="border border-secondary slider-control">
+                    <h5 class="text-center">ALARMA TEMPERATURA</h5>
+                    <div class="slidecontainer shadow p-3 mb-2 bg-white rounded">
+                        <label for="minTemp">Temperatura Mínima</label> 
+                        <input type="range" min="0" max="100" value="0" class="slider" id="minTemp">
+                    </div>
+                    <div class="slidecontainer shadow p-3 mb-2 bg-white rounded">
+                        <label for="maxTemp">Temperatura Máxima</label>
+                        <input type="range" min="0" max="100" value="100" class="slider" id="maxTemp">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 border border-secondary" id="charts-temp"></div>
+            <div class="col-sm-6 col-md-6 border border-secondary" id="charts-humid"></div>
+        </div>        
+    </div>
+    <footer class="text-center">
+        <small><b>Designed and Build by Daniel - Johan</b></small>
+    </footer>
+
+    <!-- Bootstrap Scripts CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+        
+    <!-- HighCharts -->
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+
+    <!-- Socket IO -->
+    <script src="../socket.io/socket.io.js"></script>
+
+    <!-- My Functions -->
+    <script src="./js/app.js"></script>
+</body>
+</html>
