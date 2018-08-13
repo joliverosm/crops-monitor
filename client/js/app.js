@@ -1,4 +1,4 @@
-var socket = io('http://localhost:3000');
+var socket = io('http://178.128.145.52:3000/');
 var stateMotor = false;
 var stateTurbine = false;
 var valueMinTemp = 0;
@@ -28,17 +28,19 @@ $('#turbine-ctrl').change(function () {
 /* ----- Alarm Control ----- */
 $('#minTemp').change(function () {
     let valueMinTemp = $(this).prop('value');
+    $('.slideValue1').text(valueMinTemp);
     socket.emit('minTemp', valueMinTemp);
 });
 $('#maxTemp').change(function () {
     let valueMaxTemp = $(this).prop('value');
+    $('.slideValue2').text(valueMaxTemp);
     socket.emit('maxTemp', valueMaxTemp);
 });
 
 /* ----- Highcharts ----- */
 Highcharts.setOptions({
     global: {
-        useUTC: true
+        useUTC: false
     }
 });
 
@@ -51,7 +53,7 @@ Highcharts.chart('charts-temp', {
             load: function () {                
                 var series = this.series[0];
                 socket.on('sensors', function (temp, humd, date) {
-                    let temperatura = parseFloat(temp);                    
+                    let temperatura = parseFloat(temp);                                      
                     series.addPoint([date, temperatura]);
                 });
 

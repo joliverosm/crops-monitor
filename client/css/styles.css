@@ -18,6 +18,11 @@ footer {
 }
 
 /* Control Slider */
+.slideValue1, .slideValue2 {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
 .slidecontainer {
     width: 100%; /* Width of the outside container */
 }
