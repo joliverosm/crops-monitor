@@ -116,7 +116,7 @@ Highcharts.chart('charts-humid', {
         }
     },
     title: {
-        text: 'Huemdad Relativa (%HR)'
+        text: 'Humedad Relativa (%HR)'
     },
     xAxis: {
         type: 'datetime',
