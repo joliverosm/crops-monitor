@@ -53,13 +53,13 @@ io.on('connection', function (socket) {
     socket.on('stateTurbine', function (data) {
         io.emit('get turbineState', data);
     });
-    socket.on('sensors', function (temp, humd, date) {
+    socket.on('sensors', function (temp, humd, date) {        
         io.emit('sensors', temp, humd, date);
     });
     socket.on('minTemp', function (minTemp) {
         io.emit('minTemp', minTemp);
     });
-    socket.on('mazTemp', function (maxTemp) {
-        io.emit('mazTemp', maxTemp);
+    socket.on('maxTemp', function (maxTemp) {
+        io.emit('maxTemp', maxTemp);
     });    
 });
