@@ -33,19 +33,38 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-md-6">
-                <div class="border border-secondary btn-control">                    
-                    <div class="form-group">
-                        <span class="switch">
-                            <input data-toggle="toggle" type="checkbox" class="switch" id="motor-ctrl">
-                            <label for="motor-ctrl">Motor</label>
-                        </span>
+                <div class="border border-secondary btn-control">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <span class="switch">
+                                    <input data-toggle="toggle" type="checkbox" class="switch" id="motor-ctrl">
+                                    <label for="motor-ctrl">Bombilla</label>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <span class="switch">
+                                    <input data-toggle="toggle" type="checkbox" class="switch" id="turbine-ctrl">
+                                    <label for="turbine-ctrl">Turbina</label>
+                                </span>
+                            </div>
+                        </div>                    
+                        <div class="col-sm-6 col-md-6">
+                            <div class="display-ind">
+                                <p>Temp. (°C)</p>
+                                <div class="indicator rounded-circle">
+                                    <h5 id="tem-data"></h5>
+                                </div> 
+                            </div>
+                            <div class="display-ind">
+                                <p>Hume. (%HR)</p>
+                                <div class="indicator rounded-circle">
+                                    <h5 id="hum-data"></h5>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <span class="switch">
-                            <input data-toggle="toggle" type="checkbox" class="switch" id="turbine-ctrl">
-                            <label for="turbine-ctrl">Turbina</label>
-                        </span>
-                    </div>
+
                 </div>
             </div>
             <div class="col-sm-6 col-md-6">
@@ -60,7 +79,7 @@
                         <input type="range" min="0" max="100" value="100" class="slider" id="maxTemp">
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
         <br>
         <br>
@@ -83,6 +102,8 @@
         
     <!-- HighCharts -->
     <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data-2012-2022.min.js"></script>
 
     <!-- Socket IO -->
     <script src="../socket.io/socket.io.js"></script>

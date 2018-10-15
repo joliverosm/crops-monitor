@@ -1,9 +1,10 @@
 var socket = io('http://178.128.145.52:3000/');
+//var socket = io('http://localhost:3000/');
 var stateMotor = false;
 var stateTurbine = false;
 var valueMinTemp = 0;
-var temperatura = [];
-var humedad = [];
+var temperatura = 0;
+var humedad = 0;
 
 /* Update view to all customers */
 /* socket.on('get motorState', function (data) {
@@ -38,13 +39,11 @@ $('#maxTemp').change(function () {
 });
 
 /* ----- Highcharts ----- */
-Highcharts.setOptions({
-    global: {
-        useUTC: false
-    }
-});
 
 Highcharts.chart('charts-temp', {
+    time: {
+        timezone: 'America/Bogota'
+    },
     chart: {
         type: 'spline',
         animation: Highcharts.svg, // don't animate in old IE
@@ -54,7 +53,8 @@ Highcharts.chart('charts-temp', {
                 var series = this.series[0];
                 socket.on('sensors', function (temp, humd, date) {
                     let temperatura = parseFloat(temp);                                      
-                    series.addPoint([date, temperatura]);
+                    series.addPoint([date, temperatura]);                    
+                    sensorData(temp, humd);
                 });
 
             }
@@ -80,7 +80,7 @@ Highcharts.chart('charts-temp', {
     tooltip: {
         formatter: function () {
             return '<b>' + this.series.name + '</b><br/>' +
-                Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                //Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
                 Highcharts.numberFormat(this.y, 2);
         }
     },
@@ -137,7 +137,7 @@ Highcharts.chart('charts-humid', {
     tooltip: {
         formatter: function () {
             return '<b>' + this.series.name + '</b><br/>' +
-                Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                //Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
                 Highcharts.numberFormat(this.y, 2);
         }
     },
@@ -156,3 +156,9 @@ Highcharts.chart('charts-humid', {
         }
     }]
 });
+
+function sensorData(temp, humd) {
+    $('#tem-data').html(temp);
+    $('#hum-data').html(humd);
+    return;
+};
