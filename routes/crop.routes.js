@@ -16,8 +16,8 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { temperature, humidity } = req.body;
-    let crop = new Crop({ temperature, humidity });
+    const { temperature, humidity, date } = req.body;
+    let crop = new Crop({ temperature, humidity, date });
     await crop.save();
     /* socket.on('stateMotor', (data) => {
         console.log(data);
@@ -25,8 +25,8 @@ router.post('/', async (req, res) => {
     res.json({ status: 'Data Received' });
 });
 router.put('/:id', async (req, res) => {
-    const { temperature, humidity } = req.body;
-    let updateTodo = { temperature, humidity };
+    const { temperature, humidity, date } = req.body;
+    let updateTodo = { temperature, humidity, date };
     await Crop.findByIdAndUpdate(req.params.id, updateTodo);
     res.json({ status: 'Data Upadated' });
 });
